@@ -16,13 +16,13 @@ dotenv.load_dotenv()
 
 
 # the icon and the title of the web app
-st.set_page_config(page_title="PROJECT-1 CELEBRITY STALKER", page_icon="🌟",layout="wide")
+st.set_page_config(page_title="PROJECT-1 StarPeek AI", page_icon="🌟",layout="wide")
 
 
 
 
 # streamlit framework
-st.title('Celebrity Stalker AI 🌟')
+st.title('StarPeek AI 🌟')
 input_text = st.text_input("Name a celebrity")
 
 
@@ -34,7 +34,7 @@ llm = GoogleGenerativeAI(temperature=0.8, google_api_key=google_api_key, model="
 # First Prompt Templates
 first_input_prompt = PromptTemplate(
    input_variables=['name'],  # Input variables for creating the prompt template (Here name is the input variable)
-   template="tell me about  {name}in 3 lines"
+   template="tell me everything about {name}, what is the name of {name} on google."
 )
 
 
@@ -63,7 +63,7 @@ chain2 = LLMChain(  # Second Chain Which uses the second prompt template to find
 # Prompt Templates
 third_input_prompt = PromptTemplate( # Third Prompt Template
    input_variables=['dob'], # Input variables for creating the prompt template (Here dob is the input variable)
-   template="Mention 5 major events happened around {dob} in the world" # Template for the prompt
+   template="Mention major events happened around {dob} in the world" # Template for the prompt
 )
 
 
@@ -93,7 +93,7 @@ chain5 = LLMChain(
 )
 sixth_input_prompt = PromptTemplate(
     input_variables=['person'],
-    template="What are some bad habits of {person}"
+    template="What are some bad habits of {person}, such as smoking,drinking etc"
 )
 chain6 = LLMChain(
     llm=llm, prompt=sixth_input_prompt, verbose=True, output_key='habits'
@@ -131,7 +131,7 @@ chain10 = LLMChain(
 
 eleventh_input_prompt = PromptTemplate(
     input_variables=['person'],
-    template="What are recent controversies surrounding {person}"
+    template="Provide information about the recent controversies that {person} has been involved in."
 )
 chain11 = LLMChain(
     llm=llm, prompt=eleventh_input_prompt, verbose=True, output_key='controversy'
@@ -157,14 +157,14 @@ chain13 = LLMChain(
 
 fourteenth_input_prompt = PromptTemplate(
     input_variables=['person'],
-    template="what are official endorsement of {person}"
+    template="Which brands or products has {person} officially endorsed?"
 )
 chain14 = LLMChain(
     llm=llm, prompt=fourteenth_input_prompt, verbose=True, output_key='social_media'
 )
 fifteenth_input_prompt = PromptTemplate(
     input_variables=['person'],
-    template="tell me about the wardrobe and choice of wear of  {person}"
+    template="Share information about the wardrobe selections and fashion choices of {person}."
 )
 chain15 = LLMChain(
     llm=llm, prompt=fifteenth_input_prompt, verbose=True, output_key='wardrobe'  # Corrected typo here
@@ -172,14 +172,14 @@ chain15 = LLMChain(
 
 sixteenth_input_prompt = PromptTemplate(
     input_variables=['person'],
-    template="which superhero is favourite of {person}? in one or two word"
+    template="Name the superhero that {person} likes the most"
 )
 chain16 = LLMChain(
     llm=llm, prompt=sixteenth_input_prompt, verbose=True, output_key='superhero'
 )
 seventeenth_input_prompt = PromptTemplate(
     input_variables=['person'],
-    template="what are the  project ,projects such as movies ,of {person} ? mention projects which are done , recent done and upcoming projects."
+    template="List the past, recent, and upcoming projects, such as movies, of {person}"
 )
 chain17 = LLMChain(
     llm=llm, prompt=seventeenth_input_prompt, verbose=True, output_key='projects'
@@ -226,7 +226,7 @@ if input_text:
         with st.expander("Good Habits"):
             st.write(result['good_habits'])
 
-        with st.expander("Habits"):
+        with st.expander("Bad Habits"):
             st.write(result['habits'])
 
         with st.expander("Physical Appearance"):
