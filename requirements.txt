@@ -7,5 +7,5 @@ langchain-core==0.1.22
 langchain-google-genai==0.0.8
 langsmith==0.0.87
 llama-index==0.9.46
-
+os==1.0.0
 
