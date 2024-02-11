@@ -34,7 +34,7 @@ llm = GoogleGenerativeAI(temperature=0.01, google_api_key=google_api_key, model=
 # First Prompt Templates
 first_input_prompt = PromptTemplate(
    input_variables=['name'],  # Input variables for creating the prompt template (Here name is the input variable)
-   template="tell me everything about {name},tell me about views of {name} about superheros, tell me details of {name} such as date of birth, bad habits,Apearence,controversies,skills,education,profession,controversy,awards,family_background,social_media,wardrobe,favourite superhero,projects"
+   template="tell me everything about {name},tell me about views of {name} about superheros, tell me details of {name} such as date of birth, good habits,official endoresements,bad habits,Apearence,controversies,skills,education,profession,controversy,awards,family_background,social_media,wardrobe,favourite superhero,projects"
 )
 
 
