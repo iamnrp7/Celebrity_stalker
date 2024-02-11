@@ -28,7 +28,7 @@ input_text = st.text_input("Name a celebrity")
 
 # Gemini LLMS
 google_api_key = os.getenv("GOOGLE_GEMINI_AI")  # Google API Key
-llm = GoogleGenerativeAI(temperature=0.1, google_api_key=google_api_key, model="gemini-pro")  # Initialize the Gemini LLM
+llm = GoogleGenerativeAI(temperature=0.01, google_api_key=google_api_key, model="gemini-pro")  # Initialize the Gemini LLM
 
 
 # First Prompt Templates
