@@ -22,7 +22,7 @@ st.set_page_config(page_title="PROJECT-1 CELEBRITY STALKER", page_icon="🌟",la
 
 
 # streamlit framework
-st.title('GFG GENERATIVE AI PROJECT-1')
+st.title('Celebrity Stalker AI 🌟')
 input_text = st.text_input("Name a celebrity")
 
 
@@ -167,8 +167,9 @@ fifteenth_input_prompt = PromptTemplate(
     template="tell me about the wardrobe and choice of wear of  {person}"
 )
 chain15 = LLMChain(
-    llm=llm, prompt=fifteenth_input_prompt, verbose=True, output_key='wardrobe'
+    llm=llm, prompt=fifteenth_input_prompt, verbose=True, output_key='wardrobe'  # Corrected typo here
 )
+
 sixteenth_input_prompt = PromptTemplate(
     input_variables=['person'],
     template="which superhero is favourite of {person}? in one or two word"
