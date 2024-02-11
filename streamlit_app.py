@@ -28,13 +28,13 @@ input_text = st.text_input("Name a celebrity")
 
 # Gemini LLMS
 google_api_key = os.getenv("GOOGLE_GEMINI_AI")  # Google API Key
-llm = GoogleGenerativeAI(temperature=0.8, google_api_key=google_api_key, model="gemini-pro")  # Initialize the Gemini LLM
+llm = GoogleGenerativeAI(temperature=0.1, google_api_key=google_api_key, model="gemini-pro")  # Initialize the Gemini LLM
 
 
 # First Prompt Templates
 first_input_prompt = PromptTemplate(
    input_variables=['name'],  # Input variables for creating the prompt template (Here name is the input variable)
-   template="tell me everything about {name}, what is the name of {name} on google."
+   template="tell me everything about {name},tell me about views of {name} about superheros, tell me details of {name} such as bad habits,Apearence,controversies,skills', 'education', 'profession', 'controversy', 'awards', 'family_background', 'social_media','wardrobe','favourite superhero','projects'"
 )
 
 
